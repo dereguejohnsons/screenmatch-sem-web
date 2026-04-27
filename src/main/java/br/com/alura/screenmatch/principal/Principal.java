@@ -7,6 +7,7 @@ import br.com.alura.screenmatch.service.ConsumoAPI;
 import br.com.alura.screenmatch.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class Principal {
 
      public void exibeMenu(){
 
-         System.out.println("Digite o nome da série para busca:");
+         /*System.out.println("Digite o nome da série para busca:");
          var nomeSerie = leitura.nextLine();
          var json = consumidorAPI.obterDados(ENDERECO_BUSCA + nomeSerie.replace(" ", "+") + API_KEY);
          DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
@@ -36,6 +37,15 @@ public class Principal {
 
          temporadas.forEach(t -> t.episodios().forEach( e -> System.out.println("Título: " + e.titulo() + " /" +
                  " Avaliação: " + e.avaliacao() + " /" +
-                 " Lançado em: " + e.dataLancamento())));
+                 " Lançado em: " + e.dataLancamento())));*/
+
+         List<String> nomes = Arrays.asList("Jacque", "Iasmin", "Paulo", "Rodrigo", "Nico");
+         nomes.stream()
+                 .sorted()
+                 .filter(n -> n.startsWith("N"))
+                 .limit(3) // operações intermediárias - processamento dos dados
+                 .map(n -> n.toUpperCase())
+                 .forEach(System.out::println); // operações finais - saída
+
      }
 }
